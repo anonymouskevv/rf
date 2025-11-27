@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NovaCourse – Launch Your Online Course In 10 Days</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #f5f4ff;
+      --bg-soft: #ffffff;
+      --bg-accent: #eff1ff;
+      --primary: #4b5dff;
+      --primary-soft: rgba(75, 93, 255, 0.1);
+      --primary-strong: #2936c4;
+      --accent: #ff7c5c;
+      --text-main: #111322;
+      --text-soft: #6c6f8b;
+      --border: #dde0f0;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.13);
+      --max-width: 1100px;
+      --transition: 0.2s ease-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      background: radial-gradient(circle at top right, #dfe2ff 0, #f5f4ff 40%, #f8fafc 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 18px 70px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(245, 244, 255, 0.98), rgba(245, 244, 255, 0.9), transparent);
+      border-bottom: 1px solid rgba(221, 224, 240, 0.8);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 10%, #fff 0, #ffbfb0 38%, #ff7c5c 70%);
+      box-shadow: 0 0 0 3px rgba(255, 124, 92, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-logo-inner {
+      position: absolute;
+      inset: 6px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 80% 90%, #ffd6c8 0, #ff7c5c 40%, transparent 80%);
+      opacity: 0.9;
+    }
+
+    .nav-title-main {
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 18px;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4b5dff, #2936c4);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(75, 93, 255, 0.45);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    }
+
+    .nav-cta span {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 50px rgba(75, 93, 255, 0.6);
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 12px;
+      color: var(--text-soft);
+      gap: 6px;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .nav-menu-toggle span {
+      display: block;
+      width: 14px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--text-soft);
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 8px 18px 12px;
+      border-bottom: 1px solid rgba(221, 224, 240, 0.9);
+      background: rgba(245, 244, 255, 0.98);
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .nav-mobile a {
+      padding: 4px 0;
+    }
+
+    .nav-mobile button.nav-cta {
+      justify-content: center;
+      width: fit-content;
+    }
+
+    .hero {
+      padding-top: 30px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.1rem, 3.6vw, 3rem);
+      line-height: 1.04;
+      margin: 14px 0 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-heading span {
+      background: linear-gradient(120deg, #4b5dff, #ff7c5c);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-soft);
+      max-width: 470px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--bg-accent);
+      border: 1px solid rgba(221, 224, 240, 0.9);
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4b5dff, #2936c4);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 35px rgba(75, 93, 255, 0.45);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 55px rgba(75, 93, 255, 0.6);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(246, 247, 255, 0.8);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: background var(--transition), border var(--transition), transform var(--transition);
+    }
+
+    .btn-ghost:hover {
+      background: #fff;
+      border-color: #c7cbeb;
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-note span {
+      font-weight: 500;
+      color: var(--primary-strong);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-course-chip {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--bg-accent);
+      border: 1px solid rgba(221, 224, 240, 0.9);
+      font-size: 11px;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-card-main {
+      border-radius: 16px;
+      padding: 14px;
+      background: radial-gradient(circle at top left, rgba(75, 93, 255, 0.08), rgba(255, 255, 255, 1));
+      border: 1px solid #e0e4ff;
+    }
+
+    .hero-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .hero-card-sub {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .hero-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .hero-card-pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(246, 247, 255, 0.9);
+      border: 1px solid #e1e4ff;
+    }
+
+    .hero-card-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .hero-progress-bar {
+      flex: 1;
+      height: 6px;
+      border-radius: 999px;
+      background: #edf0ff;
+      overflow: hidden;
+    }
+
+    .hero-progress-inner {
+      width: 72%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4b5dff, #ff7c5c);
+    }
+
+    .hero-floating-tag {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.92);
+      color: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-floating-tag span {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 620;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title span {
+      color: var(--primary-strong);
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+      max-width: 360px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .feature-body {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .feature-label {
+      font-size: 11px;
+      color: var(--primary-strong);
+      margin-top: 2px;
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 16px;
+    }
+
+    .curriculum-timeline {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 10px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .timeline-row:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 32px;
+      bottom: -4px;
+      width: 2px;
+      background: linear-gradient(to bottom, #e0e4ff, transparent);
+    }
+
+    .timeline-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid #4b5dff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #4b5dff;
+      z-index: 1;
+    }
+
+    .timeline-content-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .timeline-content-body {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .timeline-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--bg-accent);
+      border: 1px solid #e1e4ff;
+    }
+
+    .curriculum-side {
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: 14px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+      font-size: 12px;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .curriculum-stat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .curriculum-stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .curriculum-stat-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-strong);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .price-card {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .price-tier-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .price-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .price-value {
+      font-size: 22px;
+      font-weight: 650;
+    }
+
+    .price-value span {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-left: 4px;
+    }
+
+    .price-body {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .price-list {
+      list-style: none;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .price-list li::before {
+      content: "•";
+      margin-right: 5px;
+      color: var(--primary-strong);
+    }
+
+    .price-cta {
+      margin-top: 10px;
+      padding: 9px 0;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(246, 247, 255, 0.9);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), border var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .price-cta.primary {
+      background: linear-gradient(135deg, #4b5dff, #2936c4);
+      border-color: #4b5dff;
+      color: #fff;
+      box-shadow: 0 16px 38px rgba(75, 93, 255, 0.48);
+    }
+
+    .price-cta:hover {
+      transform: translateY(-1px);
+      background: #fff;
+      border-color: #c7cbeb;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    }
+
+    .price-ribbon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #111827;
+      color: #f9fafb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 16px;
+    }
+
+    .testimonial-main {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      padding: 16px 14px 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .testimonial-quote {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #fff 0, #c4e5ff 30%, #4b5dff 80%);
+    }
+
+    .testimonial-author-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 11px;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+    }
+
+    .testimonial-role {
+      color: var(--text-soft);
+    }
+
+    .testimonial-rating {
+      font-size: 12px;
+      color: #f59e0b;
+      margin-top: 8px;
+    }
+
+    .testimonial-side {
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: 14px;
+      font-size: 12px;
+      color: var(--text-soft);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .testimonial-pill {
+      padding: 6px 8px;
+      border-radius: 12px;
+      background: var(--bg-accent);
+      border: 1px solid #dde0f5;
+      font-size: 11px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 16px;
+    }
+
+    .faq-list {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eceffd;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-button {
+      width: 100%;
+      padding: 9px 2px;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      text-align: left;
+      color: var(--text-main);
+    }
+
+    .faq-button span.label {
+      font-weight: 500;
+    }
+
+    .faq-button span.icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      font-size: 12px;
+      color: var(--text-soft);
+      padding-right: 8px;
+    }
+
+    .faq-body-inner {
+      padding: 0 0 10px;
+    }
+
+    .faq-item.open .faq-body {
+      max-height: 200px;
+    }
+
+    .faq-item.open .faq-button span.icon {
+      background: var(--primary-soft);
+      border-color: #c7cbff;
+    }
+
+    .faq-side {
+      border-radius: var(--radius-lg);
+      background: #111827;
+      color: #e5e7eb;
+      padding: 16px 14px 14px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    .faq-side-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .faq-side-title {
+      font-size: 18px;
+      font-weight: 640;
+      margin-bottom: 6px;
+    }
+
+    .faq-side-sub {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .features-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .curriculum-grid,
+      .testimonials-grid,
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        padding-inline: 14px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-menu-toggle {
+        display: inline-flex;
+      }
+      .features-grid,
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-heading {
+        font-size: 1.9rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-ghost {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <div class="nav-logo">
+            <div class="nav-logo-inner"></div>
+          </div>
+          <div>
+            <div class="nav-title-main">NovaCourse</div>
+            <div class="nav-title-sub">Course Launch Studio</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">What you get</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Results</a>
+          <button class="nav-cta" onclick="scrollToId('cta')">
+            Enroll now
+            <span>10 spots this batch</span>
+          </button>
+        </nav>
+        <button class="nav-menu-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="navMobile">
+        <a href="#features" onclick="closeMobileNav()">What you get</a>
+        <a href="#curriculum" onclick="closeMobileNav()">Curriculum</a>
+        <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+        <a href="#testimonials" onclick="closeMobileNav()">Results</a>
+        <button class="nav-cta" onclick="scrollToId('cta'); closeMobileNav();">
+          Enroll now
+          <span>10 spots this batch</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="badge">
+              <span class="pill-dot"></span>
+              New cohort
+              <span>Starting this Monday</span>
+            </div>
+            <h1 class="hero-heading">
+              Launch your first online course
+              <span>in 10 days</span> without overthinking tech.
+            </h1>
+            <p class="hero-sub">
+              A focused, execution-heavy sprint where you go from vague idea to a validated course page, pricing, curriculum and launch plan.
+            </p>
+            <div class="hero-meta-row">
+              <div class="hero-tag">Live sessions + async feedback</div>
+              <div class="hero-tag">Beginner friendly</div>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToId('pricing')">
+                View cohort pricing
+              </button>
+              <button class="btn-ghost" onclick="scrollToId('curriculum')">
+                See day-by-day breakdown
+              </button>
+            </div>
+            <div class="hero-note">
+              <span>Guarantee:</span> If you show up to all calls and don’t ship a course page, you get a full refund.
+            </div>
+          </div>
+          <div>
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <span class="hero-course-chip">Cohort 07 • April 2025</span>
+                <span class="hero-status">
+                  <span class="hero-status-dot"></span>
+                  7 seats left
+                </span>
+              </div>
+              <div class="hero-card-main">
+                <div class="hero-card-title">Course Launch Dashboard</div>
+                <div class="hero-card-sub">Track your progress as you move from idea to live checkout page.</div>
+                <div class="hero-card-meta">
+                  <div class="hero-card-pill">Day 1–3: Positioning</div>
+                  <div class="hero-card-pill">Day 4–6: Curriculum</div>
+                  <div class="hero-card-pill">Day 7–10: Launch</div>
+                </div>
+                <div class="hero-card-progress">
+                  <div class="hero-progress-bar">
+                    <div class="hero-progress-inner"></div>
+                  </div>
+                  <div>72% to launch</div>
+                </div>
+              </div>
+              <div class="hero-floating-tag">
+                <span>COHORT MODEL</span>
+                <strong>Live + Worksheets</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">What actually happens inside</div>
+            <div class="section-title">
+              A launch sprint built for <span>busy creators</span>.
+            </div>
+          </div>
+          <p class="section-sub">
+            No fluff lectures or generic advice. You get structured templates, live examples and feedback on your actual course.
+          </p>
+        </div>
+        <div class="features-grid">
+          <article class="feature">
+            <div class="feature-icon">🧭</div>
+            <div class="feature-title">Position your course so it sells</div>
+            <div class="feature-body">
+              Clarify who the course is for, what problem it solves and why it deserves a premium price compared to free content.
+            </div>
+            <div class="feature-label">Messaging that feels obvious to buy.</div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">🧱</div>
+            <div class="feature-title">Design a clean curriculum</div>
+            <div class="feature-body">
+              Turn your knowledge into a step-by-step path with modules, lessons and outcomes people can clearly see.
+            </div>
+            <div class="feature-label">Less content, more completion.</div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">💳</div>
+            <div class="feature-title">Ship a simple sales page</div>
+            <div class="feature-body">
+              Use our single-page template to set up a landing page, FAQ, pricing block and checkout within a day.
+            </div>
+            <div class="feature-label">Tech stack kept minimal.</div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">📣</div>
+            <div class="feature-title">Mini-launch strategy</div>
+            <div class="feature-body">
+              Plan 3–5 emails or posts that let you talk about your offer without feeling cringe or salesy.
+            </div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">🗂️</div>
+            <div class="feature-title">Templates you keep forever</div>
+            <div class="feature-body">
+              Positioning sheets, curriculum planners and launch checklists you can reuse for future cohorts.
+            </div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">👥</div>
+            <div class="feature-title">Small group feedback</div>
+            <div class="feature-body">
+              Get eyes on your page, offer and pricing from the instructor and other builders in the room.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="curriculum">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">Inside the 10 days</div>
+            <div class="section-title">
+              A clear, <span>day-by-day</span> roadmap.
+            </div>
+          </div>
+          <p class="section-sub">
+            Each block combines one focused lesson, a template and a small execution task so you keep moving without burning out.
+          </p>
+        </div>
+        <div class="curriculum-grid">
+          <div class="curriculum-timeline">
+            <div class="timeline-row">
+              <div class="timeline-badge">1–2</div>
+              <div>
+                <div class="timeline-content-title">Nail your course idea and promise</div>
+                <div class="timeline-content-body">
+                  Define the transformation your course delivers and check if people are already paying for similar outcomes.
+                </div>
+                <div class="timeline-tags">
+                  <span class="timeline-pill">Offer checklist</span>
+                  <span class="timeline-pill">Audience clarity</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-badge">3–4</div>
+              <div>
+                <div class="timeline-content-title">Map the curriculum</div>
+                <div class="timeline-content-body">
+                  Break your idea into modules and lessons, then remove anything that doesn’t directly help the final outcome.
+                </div>
+                <div class="timeline-tags">
+                  <span class="timeline-pill">Module planner</span>
+                  <span class="timeline-pill">Scope guardrails</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-badge">5–6</div>
+              <div>
+                <div class="timeline-content-title">Build your sales page</div>
+                <div class="timeline-content-body">
+                  Write headline, subtext, outcomes, curriculum preview, social proof slots and FAQ using swipeable examples.
+                </div>
+                <div class="timeline-tags">
+                  <span class="timeline-pill">Copy prompts</span>
+                  <span class="timeline-pill">Landing template</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-badge">7–10</div>
+              <div>
+                <div class="timeline-content-title">Soft launch and validate demand</div>
+                <div class="timeline-content-body">
+                  Share your page with a small warm audience, collect responses and refine pricing before going broader.
+                </div>
+                <div class="timeline-tags">
+                  <span class="timeline-pill">Launch checklist</span>
+                  <span class="timeline-pill">Feedback loop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="curriculum-side">
+            <div>
+              <div class="curriculum-stat-label">Format</div>
+              <div class="curriculum-stat-value">3 live calls + async reviews</div>
+            </div>
+            <div class="curriculum-stat-row">
+              <div>
+                <div class="curriculum-stat-label">Time needed</div>
+                <div class="curriculum-stat-value">60–90 min per day</div>
+              </div>
+              <div>
+                <div class="curriculum-stat-label">Level</div>
+                <div class="curriculum-stat-value">First-time course creators</div>
+              </div>
+            </div>
+            <div>
+              <div class="curriculum-stat-label">You walk away with</div>
+              <div class="curriculum-stat-value">A ready-to-sell course and launch plan</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">Pick how supported you want to be</div>
+            <div class="section-title">
+              Simple <span>cohort pricing</span>.
+            </div>
+          </div>
+          <p class="section-sub">
+            All tiers get access to the same core curriculum. Higher tiers add more feedback and implementation help.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="price-tier-label">Starter</div>
+            <div class="price-name">Self-paced inside the cohort</div>
+            <div class="price-value">$79 <span>one-time</span></div>
+            <div class="price-body">
+              For creators who prefer to follow the material and build quietly, with light support from the group.
+            </div>
+            <ul class="price-list">
+              <li>Access to all live calls</li>
+              <li>Templates and Notion hub</li>
+              <li>Cohort community space</li>
+            </ul>
+            <button class="price-cta" onclick="scrollToId('cta')">Start with Starter</button>
+          </article>
+          <article class="price-card">
+            <div class="price-ribbon">Most popular</div>
+            <div class="price-tier-label">Builder</div>
+            <div class="price-name">Guided with async feedback</div>
+            <div class="price-value">$149 <span>one-time</span></div>
+            <div class="price-body">
+              For people who want regular feedback on their page, ideas and pricing as they move through the sprint.
+            </div>
+            <ul class="price-list">
+              <li>Everything in Starter</li>
+              <li>Weekly page reviews</li>
+              <li>Feedback on positioning and pricing</li>
+            </ul>
+            <button class="price-cta primary" onclick="scrollToId('cta')">Join as Builder</button>
+          </article>
+          <article class="price-card">
+            <div class="price-tier-label">Partner</div>
+            <div class="price-name">Done-with-you support</div>
+            <div class="price-value">$299 <span>limited seats</span></div>
+            <div class="price-body">
+              For founders who want help rewriting copy, structuring curriculum and setting up a lean tech stack.
+            </div>
+            <ul class="price-list">
+              <li>Everything in Builder</li>
+              <li>1:1 deep dive call</li>
+              <li>Copy review for your sales page</li>
+            </ul>
+            <button class="price-cta" onclick="scrollToId('cta')">Apply for Partner</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="testimonials">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">People who already shipped</div>
+            <div class="section-title">
+              Small wins, <span>real momentum</span>.
+            </div>
+          </div>
+          <p class="section-sub">
+            Use this section later for real screenshots. For now it shows how your testimonials will sit on the page.
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-main">
+            <div class="testimonial-quote">
+              “I’d been sitting on my course idea for a year. In ten days I had a curriculum, landing page and six paid students from my tiny audience.”
+            </div>
+            <div class="testimonial-author-row">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author-meta">
+                <div class="testimonial-name">Sana I.</div>
+                <div class="testimonial-role">Notion creator turned course builder</div>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★ 4.9 average rating across cohorts</div>
+          </article>
+          <aside class="testimonial-side">
+            <div class="testimonial-pill">
+              “The biggest shift was realizing my course didn’t need 40 videos. We cut the scope in half and it became 10x easier to launch.”
+            </div>
+            <div class="testimonial-pill">
+              “Templates were plug-and-play. I basically filled in blanks and had a page that felt way more professional than what I’d build alone.”
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">Before you join</div>
+            <div class="section-title">
+              A quick <span>FAQ</span>.
+            </div>
+          </div>
+          <p class="section-sub">
+            If anything is still unclear, ask before you enroll. The goal is to make sure this sprint is a good fit for where you are right now.
+          </p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button class="faq-button">
+                <span class="label">Do I need an audience to join?</span>
+                <span class="icon">−</span>
+              </button>
+              <div class="faq-body" style="max-height: 200px;">
+                <div class="faq-body-inner">
+                  A tiny audience is enough. The sprint is about validating that a small group of people will pay for your course, not about going viral.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-button">
+                <span class="label">What if I don’t have a niche yet?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  The first two days help you narrow down a topic based on your skills, past work and what people already ask you for help with.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-button">
+                <span class="label">Is this about recording content or just planning?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  The sprint is focused on designing the course, building the page and running a mini-launch. Recording can start once you have buyers.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-button">
+                <span class="label">What tools do I need?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="faq-body">
+                <div class="faq-body-inner">
+                  We keep the stack lean. A note-taking tool (like Notion), a simple landing page setup and a payment link provider are enough.
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="faq-side" id="cta">
+            <div class="faq-side-label">Enrollment</div>
+            <div class="faq-side-title">Ready to build your course for real?</div>
+            <div class="faq-side-sub">
+              If you’ve been stuck in “someday I’ll create a course” land, this sprint is the container where it finally becomes real.
+            </div>
+            <button class="btn-primary" onclick="scrollToId('pricing')">
+              See options and enroll
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>© 2025 NovaCourse Studio. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#features">What you get</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function scrollToId(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    var navToggle = document.getElementById("navToggle");
+    var navMobile = document.getElementById("navMobile");
+
+    function closeMobileNav() {
+      if (navMobile) {
+        navMobile.style.display = "none";
+      }
+    }
+
+    if (navToggle && navMobile) {
+      navToggle.addEventListener("click", function () {
+        var visible = navMobile.style.display === "flex";
+        navMobile.style.display = visible ? "none" : "flex";
+      });
+    }
+
+    var faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(function (item) {
+      var button = item.querySelector(".faq-button");
+      var icon = item.querySelector(".icon");
+      var body = item.querySelector(".faq-body");
+
+      button.addEventListener("click", function () {
+        var isOpen = item.classList.contains("open");
+        faqItems.forEach(function (other) {
+          if (other !== item) {
+            other.classList.remove("open");
+            var otherBody = other.querySelector(".faq-body");
+            var otherIcon = other.querySelector(".icon");
+            if (otherBody) {
+              otherBody.style.maxHeight = 0;
+            }
+            if (otherIcon) {
+              otherIcon.textContent = "+";
+            }
+          }
+        });
+        if (!isOpen) {
+          item.classList.add("open");
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.textContent = "−";
+        } else {
+          item.classList.remove("open");
+          body.style.maxHeight = 0;
+          icon.textContent = "+";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
